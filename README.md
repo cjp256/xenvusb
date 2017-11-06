@@ -1,4 +1,4 @@
-XenVusb - The Xen Paravitual Network Class Driver for Windows
+XenVusb - The Xen Paravitual VUSB Class Driver for Windows
 ============================================================
 
 The XenVusb package consists of a single device driver:
