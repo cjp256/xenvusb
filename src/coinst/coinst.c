@@ -60,7 +60,7 @@ static VOID
 __Log(
     IN  const CHAR  *Format,
     IN  ...
-    )
+)
 {
     TCHAR               Buffer[MAXIMUM_BUFFER_SIZE];
     va_list             Arguments;
@@ -103,7 +103,7 @@ __Log(
 static PTCHAR
 GetErrorMessage(
     IN  DWORD   Error
-    )
+)
 {
     PTCHAR      Message;
     ULONG       Index;
@@ -132,49 +132,49 @@ GetErrorMessage(
 static const CHAR *
 FunctionName(
     IN  DI_FUNCTION Function
-    )
+)
 {
 #define _NAME(_Function)        \
         case DIF_ ## _Function: \
             return #_Function;
 
     switch (Function) {
-    _NAME(INSTALLDEVICE);
-    _NAME(REMOVE);
-    _NAME(SELECTDEVICE);
-    _NAME(ASSIGNRESOURCES);
-    _NAME(PROPERTIES);
-    _NAME(FIRSTTIMESETUP);
-    _NAME(FOUNDDEVICE);
-    _NAME(SELECTCLASSDRIVERS);
-    _NAME(VALIDATECLASSDRIVERS);
-    _NAME(INSTALLCLASSDRIVERS);
-    _NAME(CALCDISKSPACE);
-    _NAME(DESTROYPRIVATEDATA);
-    _NAME(VALIDATEDRIVER);
-    _NAME(MOVEDEVICE);
-    _NAME(DETECT);
-    _NAME(INSTALLWIZARD);
-    _NAME(DESTROYWIZARDDATA);
-    _NAME(PROPERTYCHANGE);
-    _NAME(ENABLECLASS);
-    _NAME(DETECTVERIFY);
-    _NAME(INSTALLDEVICEFILES);
-    _NAME(ALLOW_INSTALL);
-    _NAME(SELECTBESTCOMPATDRV);
-    _NAME(REGISTERDEVICE);
-    _NAME(NEWDEVICEWIZARD_PRESELECT);
-    _NAME(NEWDEVICEWIZARD_SELECT);
-    _NAME(NEWDEVICEWIZARD_PREANALYZE);
-    _NAME(NEWDEVICEWIZARD_POSTANALYZE);
-    _NAME(NEWDEVICEWIZARD_FINISHINSTALL);
-    _NAME(INSTALLINTERFACES);
-    _NAME(DETECTCANCEL);
-    _NAME(REGISTER_COINSTALLERS);
-    _NAME(ADDPROPERTYPAGE_ADVANCED);
-    _NAME(ADDPROPERTYPAGE_BASIC);
-    _NAME(TROUBLESHOOTER);
-    _NAME(POWERMESSAGEWAKE);
+        _NAME(INSTALLDEVICE);
+        _NAME(REMOVE);
+        _NAME(SELECTDEVICE);
+        _NAME(ASSIGNRESOURCES);
+        _NAME(PROPERTIES);
+        _NAME(FIRSTTIMESETUP);
+        _NAME(FOUNDDEVICE);
+        _NAME(SELECTCLASSDRIVERS);
+        _NAME(VALIDATECLASSDRIVERS);
+        _NAME(INSTALLCLASSDRIVERS);
+        _NAME(CALCDISKSPACE);
+        _NAME(DESTROYPRIVATEDATA);
+        _NAME(VALIDATEDRIVER);
+        _NAME(MOVEDEVICE);
+        _NAME(DETECT);
+        _NAME(INSTALLWIZARD);
+        _NAME(DESTROYWIZARDDATA);
+        _NAME(PROPERTYCHANGE);
+        _NAME(ENABLECLASS);
+        _NAME(DETECTVERIFY);
+        _NAME(INSTALLDEVICEFILES);
+        _NAME(ALLOW_INSTALL);
+        _NAME(SELECTBESTCOMPATDRV);
+        _NAME(REGISTERDEVICE);
+        _NAME(NEWDEVICEWIZARD_PRESELECT);
+        _NAME(NEWDEVICEWIZARD_SELECT);
+        _NAME(NEWDEVICEWIZARD_PREANALYZE);
+        _NAME(NEWDEVICEWIZARD_POSTANALYZE);
+        _NAME(NEWDEVICEWIZARD_FINISHINSTALL);
+        _NAME(INSTALLINTERFACES);
+        _NAME(DETECTCANCEL);
+        _NAME(REGISTER_COINSTALLERS);
+        _NAME(ADDPROPERTYPAGE_ADVANCED);
+        _NAME(ADDPROPERTYPAGE_BASIC);
+        _NAME(TROUBLESHOOTER);
+        _NAME(POWERMESSAGEWAKE);
     default:
         break;
     }
@@ -188,7 +188,7 @@ static BOOLEAN
 AllowUpdate(
     IN  PTCHAR      DriverName,
     OUT PBOOLEAN    Allow
-    )
+)
 {
     TCHAR           ServiceKeyName[MAX_PATH];
     HKEY            ServiceKey;
@@ -278,7 +278,7 @@ fail1:
 static BOOLEAN
 AllowInstall(
     OUT PBOOLEAN    Allow
-    )
+)
 {
     BOOLEAN         Success;
     HRESULT         Error;
@@ -311,7 +311,7 @@ fail1:
 static BOOL
 VusbDelete(
     VOID
-    )
+)
 {
     SC_HANDLE           SCManager;
     SC_HANDLE           Service;
@@ -385,7 +385,7 @@ DifInstallPreProcess(
     IN  HDEVINFO                    DeviceInfoSet,
     IN  PSP_DEVINFO_DATA            DeviceInfoData,
     IN  PCOINSTALLER_CONTEXT_DATA   Context
-    )
+)
 {
     HRESULT                         Error;
     BOOLEAN                         Success;
@@ -432,7 +432,7 @@ DifInstallPostProcess(
     IN  HDEVINFO                    DeviceInfoSet,
     IN  PSP_DEVINFO_DATA            DeviceInfoData,
     IN  PCOINSTALLER_CONTEXT_DATA   Context
-    )
+)
 {
     UNREFERENCED_PARAMETER(DeviceInfoSet);
     UNREFERENCED_PARAMETER(DeviceInfoData);
@@ -448,7 +448,7 @@ DifInstall(
     IN  HDEVINFO                    DeviceInfoSet,
     IN  PSP_DEVINFO_DATA            DeviceInfoData,
     IN  PCOINSTALLER_CONTEXT_DATA   Context
-    )
+)
 {
     SP_DEVINSTALL_PARAMS            DeviceInstallParams;
     HRESULT                         Error;
@@ -504,7 +504,7 @@ DifRemovePreProcess(
     IN  HDEVINFO                    DeviceInfoSet,
     IN  PSP_DEVINFO_DATA            DeviceInfoData,
     IN  PCOINSTALLER_CONTEXT_DATA   Context
-    )
+)
 {
     UNREFERENCED_PARAMETER(DeviceInfoSet);
     UNREFERENCED_PARAMETER(DeviceInfoData);
@@ -524,7 +524,7 @@ DifRemovePostProcess(
     IN  HDEVINFO                    DeviceInfoSet,
     IN  PSP_DEVINFO_DATA            DeviceInfoData,
     IN  PCOINSTALLER_CONTEXT_DATA   Context
-    )
+)
 {
     UNREFERENCED_PARAMETER(DeviceInfoSet);
     UNREFERENCED_PARAMETER(DeviceInfoData);
@@ -540,7 +540,7 @@ DifRemove(
     IN  HDEVINFO                    DeviceInfoSet,
     IN  PSP_DEVINFO_DATA            DeviceInfoData,
     IN  PCOINSTALLER_CONTEXT_DATA   Context
-    )
+)
 {
     SP_DEVINSTALL_PARAMS            DeviceInstallParams;
     HRESULT                         Error;
@@ -597,7 +597,7 @@ Entry(
     IN  HDEVINFO                    DeviceInfoSet,
     IN  PSP_DEVINFO_DATA            DeviceInfoData,
     IN  PCOINSTALLER_CONTEXT_DATA   Context
-    )
+)
 {
     HRESULT                         Error;
 
@@ -621,8 +621,8 @@ Entry(
 
         DriverInfoData.cbSize = sizeof (DriverInfoData);
         DriverInfoAvailable = SetupDiGetSelectedDriver(DeviceInfoSet,
-                                                       DeviceInfoData,
-                                                       &DriverInfoData) ?
+                              DeviceInfoData,
+                              &DriverInfoData) ?
                               TRUE :
                               FALSE;
 
@@ -659,7 +659,7 @@ Version(
     IN  HINSTANCE   Module,
     IN  PTCHAR      Buffer,
     IN  INT         Reserved
-    )
+)
 {
     UNREFERENCED_PARAMETER(Window);
     UNREFERENCED_PARAMETER(Module);
@@ -676,17 +676,17 @@ Version(
 static const CHAR *
 ReasonName(
     IN  DWORD       Reason
-    )
+)
 {
 #define _NAME(_Reason)          \
         case DLL_ ## _Reason:   \
             return #_Reason;
 
     switch (Reason) {
-    _NAME(PROCESS_ATTACH);
-    _NAME(PROCESS_DETACH);
-    _NAME(THREAD_ATTACH);
-    _NAME(THREAD_DETACH);
+        _NAME(PROCESS_ATTACH);
+        _NAME(PROCESS_DETACH);
+        _NAME(THREAD_ATTACH);
+        _NAME(THREAD_DETACH);
     default:
         break;
     }
@@ -701,7 +701,7 @@ DllMain(
     IN  HINSTANCE   Module,
     IN  DWORD       Reason,
     IN  PVOID       Reserved
-    )
+)
 {
     UNREFERENCED_PARAMETER(Module);
     UNREFERENCED_PARAMETER(Reserved);

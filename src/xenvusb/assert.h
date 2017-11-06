@@ -34,19 +34,19 @@
 
 static FORCEINLINE VOID
 __Bug(
-	IN  ULONG       Code,
-	IN  ULONG_PTR   Parameter1,
-	IN  ULONG_PTR   Parameter2,
-	IN  ULONG_PTR   Parameter3,
-	IN  ULONG_PTR   Parameter4
+    IN  ULONG       Code,
+    IN  ULONG_PTR   Parameter1,
+    IN  ULONG_PTR   Parameter2,
+    IN  ULONG_PTR   Parameter3,
+    IN  ULONG_PTR   Parameter4
 )
 {
 #pragma prefast(suppress:28159)
-	KeBugCheckEx(Code,
-		Parameter1,
-		Parameter2,
-		Parameter3,
-		Parameter4);
+    KeBugCheckEx(Code,
+                 Parameter1,
+                 Parameter2,
+                 Parameter3,
+                 Parameter4);
 }
 
 #define ASSERTION_FAILURE   0x0000DEAD
@@ -149,42 +149,42 @@ __Bug(
 
 static __inline BOOLEAN
 _IsZeroMemory(
-	IN  const PCHAR Caller,
-	IN  const PCHAR Name,
-	IN  PVOID       Buffer,
-	IN  ULONG       Length
+    IN  const PCHAR Caller,
+    IN  const PCHAR Name,
+    IN  PVOID       Buffer,
+    IN  ULONG       Length
 )
 {
-	ULONG           Offset;
+    ULONG           Offset;
 
-	Offset = 0;
-	while (Offset < Length) {
-		if (*((PUCHAR)Buffer + Offset) != 0) {
-			Error("%s: non-zero byte in %s (0x%p+0x%x)\n", Caller, Name, Buffer, Offset);
-			return FALSE;
-		}
-		Offset++;
-	}
+    Offset = 0;
+    while (Offset < Length) {
+        if (*((PUCHAR)Buffer + Offset) != 0) {
+            Error("%s: non-zero byte in %s (0x%p+0x%x)\n", Caller, Name, Buffer, Offset);
+            return FALSE;
+        }
+        Offset++;
+    }
 
-	return TRUE;
+    return TRUE;
 }
 
 #else   // TEST_MEMORY
 
 static __inline BOOLEAN
 _IsZeroMemory(
-	IN  const PCHAR Caller,
-	IN  const PCHAR Name,
-	IN  PVOID       Buffer,
-	IN  ULONG       Length
+    IN  const PCHAR Caller,
+    IN  const PCHAR Name,
+    IN  PVOID       Buffer,
+    IN  ULONG       Length
 )
 {
-	UNREFERENCED_PARAMETER(Caller);
-	UNREFERENCED_PARAMETER(Name);
-	UNREFERENCED_PARAMETER(Buffer);
-	UNREFERENCED_PARAMETER(Length);
+    UNREFERENCED_PARAMETER(Caller);
+    UNREFERENCED_PARAMETER(Name);
+    UNREFERENCED_PARAMETER(Buffer);
+    UNREFERENCED_PARAMETER(Length);
 
-	return TRUE;
+    return TRUE;
 }
 
 #endif  // TEST_MEMORY
