@@ -798,12 +798,12 @@ BusCreatePdo(
 
     WdfDeviceInitSetDeviceType(DeviceInit, FILE_DEVICE_BUS_EXTENDER);
 
-    status = RtlUnicodeStringPrintf(&deviceName, L"XENVUSB\\VEN_XP0001&DEV_USB&REV_09000002\0");
+    status = RtlUnicodeStringPrintf(&deviceName, L"XENVUSB\\VEN_XP0001&DEV_VUSB&REV_09000000\0");
     if (!NT_SUCCESS(status)) {
         return status;
     }
 
-    status = RtlUnicodeStringPrintf(&deviceId, L"XENVUSB\\VEN_XP0001&DEV_USB&REV_09000002", DeviceId);
+    status = RtlUnicodeStringPrintf(&deviceId, L"XENVUSB\\VEN_XP0001&DEV_VUSB&REV_09000000", DeviceId);
     if (!NT_SUCCESS(status)) {
         return status;
     }
