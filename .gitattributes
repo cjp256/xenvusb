@@ -1,0 +1,18 @@
+# Set the default behavior, in case people don't have core.autocrlf set.
+* text=auto
+
+# Native line endings (on checkout)
+*.c text
+*.cpp text
+*.cxx text
+*.h text
+*.hpp text
+*.hxx text
+*.py text
+
+# CRLF (on checkout)
+*.sln text eol=crlf
+*.vcxproj text eol=crlf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
