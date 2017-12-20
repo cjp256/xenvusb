@@ -79,6 +79,7 @@ def copy_inf(vs, name):
         line = re.sub('@MICRO_VERSION@', os.environ['MICRO_VERSION'], line)
         line = re.sub('@BUILD_NUMBER@', os.environ['BUILD_NUMBER'], line)
         line = re.sub('@VENDOR_NAME@', os.environ['VENDOR_NAME'], line)
+        line = re.sub('@VENDOR_PREFIX@', os.environ['VENDOR_PREFIX'], line)
         line = re.sub('@PRODUCT_NAME@', os.environ['PRODUCT_NAME'], line)
 
         if re.search('@VENDOR_DEVICE_ID@', line):
