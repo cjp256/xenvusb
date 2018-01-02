@@ -51,6 +51,7 @@
 
 #include "bus.h"
 #include "dbg_print.h"
+#include "version.h"
 
 #define BUS_TAG         'Xusb'
 
@@ -798,12 +799,12 @@ BusCreatePdo(
 
     WdfDeviceInitSetDeviceType(DeviceInit, FILE_DEVICE_BUS_EXTENDER);
 
-    status = RtlUnicodeStringPrintf(&deviceName, L"XENVUSB\\VEN_XP0001&DEV_VUSB&REV_09000000\0");
+    status = RtlUnicodeStringPrintf(&deviceName, L"XENVUSB\\VEN_%s0001&DEV_VUSB&REV_%08x", VENDOR_PREFIX_LSTR, 0x09000000);
     if (!NT_SUCCESS(status)) {
         return status;
     }
 
-    status = RtlUnicodeStringPrintf(&deviceId, L"XENVUSB\\VEN_XP0001&DEV_VUSB&REV_09000000", DeviceId);
+    status = RtlUnicodeStringPrintf(&deviceId, L"XENVUSB\\VEN_%s0001&DEV_VUSB&REV_%08x", VENDOR_PREFIX_LSTR, 0x09000000);
     if (!NT_SUCCESS(status)) {
         return status;
     }

@@ -31,6 +31,7 @@ def make_header():
 
     file.write('#define VENDOR_NAME_STR\t\t"' + os.environ['VENDOR_NAME'] + '"\n')
     file.write('#define VENDOR_PREFIX_STR\t"' + os.environ['VENDOR_PREFIX'] + '"\n')
+    file.write('#define VENDOR_PREFIX_LSTR\tL"' + os.environ['VENDOR_PREFIX'] + '"\n')
 
     if 'VENDOR_DEVICE_ID' in os.environ.keys():
         file.write('#define VENDOR_DEVICE_ID_STR\t"' + os.environ['VENDOR_DEVICE_ID'] + '"\n')
